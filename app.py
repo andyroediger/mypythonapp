@@ -50,22 +50,22 @@ def newpage():
     return render_template('model.html')
 
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0', port=5000)
-    host = '0.0.0.0'
-    port = int(os.environ.get('PORT', 5000))
-    workers = util.get_num_workers()
+    app.run(host='0.0.0.0', port=5000)
+    # host = '0.0.0.0'
+    # port = int(os.environ.get('PORT', 5000))
+    # workers = util.get_num_workers()
 
-    bind_address = f'{host}:{port}'
-    worker_class = 'gevent'  # You can choose another worker class based on your requirements
+    # bind_address = f'{host}:{port}'
+    # worker_class = 'gevent'  # You can choose another worker class based on your requirements
 
-    cmd = [
-        'gunicorn',
-        '--workers', str(workers),
-        '--bind', bind_address,
-        '--worker-class', worker_class,
-        'app:app',
-    ]
+    # cmd = [
+    #     'gunicorn',
+    #     '--workers', str(workers),
+    #     '--bind', bind_address,
+    #     '--worker-class', worker_class,
+    #     'app:app',
+    # ]
 
-    os.execvp(cmd[0], cmd)
+    # os.execvp(cmd[0], cmd)
     
 
