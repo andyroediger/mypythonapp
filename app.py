@@ -1,5 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, make_response
 import yfinance as yf
+import pandas as pd
+import datetime as dt
 import os
 from gunicorn import util
 
@@ -19,7 +21,9 @@ def stock_info(symbol):
     
 @app.route('/ai')
 def ai():
-    return render_template('ai.html')
+    return 
+    df = yf,download('AI', '2022-12-30', '2023-12-24')
+    print(df)
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
