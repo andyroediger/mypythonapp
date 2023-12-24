@@ -16,9 +16,15 @@ def stock_info(symbol):
     except Exception as e:
        
         return f"Error: {str(e)}"
+    
+@app.route('/ai')
+def ai():
+    return render_template('ai.html')
+
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     return render_template('home.html')
+
 @app.route('/')
 def start():
     return "Hello Abdulla"
