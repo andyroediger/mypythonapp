@@ -4,31 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table with External CSS</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>AI Stock Data</title>
 </head>
 
 <body>
+    <h1>AI Stock Data</h1>
 
-    <table class="styled-table">
-        <caption>C3.ai, Inc. Stock Statistics</caption>
-        <thead>
-            <tr>
-                <th>Stock Symbol</th>
-                <th>Header 2</th>
-                <th>Header 3</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-            </tr>
-            <!-- Add more rows as needed -->
-        </tbody>
-    </table>
-
+    <!-- Render the HTML table -->
+    {{ table_html | safe }}
 </body>
 
 </html>
