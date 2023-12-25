@@ -19,7 +19,7 @@ def stock_info(symbol):
        
         return f"Error: {str(e)}"
 
-@app.route('/ai')
+@app.route('/ai/model')
 def stock_info(symbol):
     try:
         stock_data = yf.Ticker(symbol)
