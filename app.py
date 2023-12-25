@@ -23,10 +23,13 @@ def stock_info(symbol):
 def test(symbol):
     try:
         stock_data = yf.Ticker(symbol)
-        info = stock_data.info
+        info = {
+            'previousClose': stock_data.info.get('previousClose'),
+            'open': stock_data.info.get('open'),
+            'dayLow': stock_data.info.get('dayLow')
+        }
         return render_template('test.html', info=info)
     except Exception as e:
-       
         return f"Error: {str(e)}"
 
 # @app.route('/ai/model')
