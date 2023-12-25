@@ -28,7 +28,8 @@ def test(symbol):
             'previousClose': stock_data.info.get('previousClose'),
             'open': stock_data.info.get('open'),
             'dayLow': stock_data.info.get('dayLow'),
-            'fullTimeEmployees': stock_data.info.get('fullTimeEmployees')
+            'fullTimeEmployees': stock_data.info.get('fullTimeEmployees'),
+            'website': stock_data.info.get('website')
         }
         return render_template('test.html', info=info)
     except Exception as e:

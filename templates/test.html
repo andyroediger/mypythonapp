@@ -8,12 +8,13 @@
 </head>
 
 <body>
-    <h1>Stock Information</h1>
+    <h1>{{ info.symbol}}</h1>
     <p>Symbol: {{ info.symbol}}</p>
     <p>Previous Close: {{ info.previousClose }}</p>
     <p>Open: {{ info.open }}</p>
-    <p>Open: {{ info.dayLow }}</p>
-    <p>Open: {{ info.fullTimeEmployees }}</p>
+    <p>Days' Low: {{ info.dayLow }}</p>
+    <p>Full Time Employees: {{ info.fullTimeEmployees }}</p>
+    <p>Website: {{ info.website }}</p>
     </body>
 
 </html>
