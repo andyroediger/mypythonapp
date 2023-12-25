@@ -1,9 +1,9 @@
 from flask import Flask, render_template, redirect, url_for, request, make_response
 import yfinance as yf
 import pandas as pd
+import datetime as dt
 import os
-import gunicorn
-
+from gunicorn import util
 
 
 app = Flask(__name__)
@@ -21,17 +21,15 @@ def stock_info(symbol):
 
 @app.route('/ai')
 def ai():
-    try:
-        # Download stock data for AI from '2022-12-30' to '2023-12-24'
-        df = yf.download('AI', start='2022-12-30', end='2023-12-24')
-        
-        # Convert DataFrame to HTML
-        table_html = df.to_html()
-
-        # You can pass the HTML table to the template
-        return render_template('ai.html', table_html=table_html)
-    except Exception as e:
-        return f"Error: {str(e)}"
+    # Download stock data for AI from '2022-12-30' to '2023-12-24'
+    df = yf.download('AI', start='2022-12-30', end='2023-12-24')
+    
+    # Print the downloaded data (optional)
+    print(df)
+    
+    # You can do further processing or return the data to the user interface
+    # For now, let's return a simple message to the user
+    return "Stock data downloaded successfully!"
 
 
 @app.route('/home', methods=['GET', 'POST'])
