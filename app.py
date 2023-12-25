@@ -19,15 +19,15 @@ def stock_info(symbol):
        
         return f"Error: {str(e)}"
 
-@app.route('/ai/model')
-def stock_info(symbol):
-    try:
-        stock_data = yf.Ticker(symbol)
-        info = stock_data.info['dayLow']
-        return render_template('stock_info.html', info=info)
-    except Exception as e:
+# @app.route('/ai/model')
+# def stock_info(symbol):
+#     try:
+#         stock_data = yf.Ticker(symbol)
+#         info = stock_data.info['dayLow']
+#         return render_template('stock_info.html', info=info)
+#     except Exception as e:
        
-        return f"Error: {str(e)}"
+#         return f"Error: {str(e)}"
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
