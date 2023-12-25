@@ -30,6 +30,7 @@ def ai():
 
         # You can pass the HTML table to the template
         return render_template('ai.html')
+    except Exception as e:
 
 
 @app.route('/home', methods=['GET', 'POST'])
