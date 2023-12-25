@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request, make_respo
 import yfinance as yf
 import pandas as pd
 import os
-from gunicorn
+
 
 
 app = Flask(__name__)
