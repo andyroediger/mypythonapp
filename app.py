@@ -20,20 +20,13 @@ def stock_info(symbol):
         return f"Error: {str(e)}"
 
 @app.route('/ai')
-def ai():
+def stock_info(symbol):
     try:
-        # Download stock data for AI from '2022-12-30' to '2023-12-24'
-        df = yf.download('AI', start='2022-12-30', end='2023-12-24')
-
-        # Print the downloaded data (optional)
-        print(df)
-
-        # You can do further processing or return the data to the user interface
-        # For now, let's return a simple message to the user
-        return "Stock data downloaded successfully!"
+        stock_data = yf.Ticker(symbol)
+        info = stock_data.info['dayLow']
+        return render_template('stock_info.html', info=info)
     except Exception as e:
-        # Log the exception for debugging
-        print(f"Error in '/ai' route: {str(e)}")
+       
         return f"Error: {str(e)}"
 
 @app.route('/home', methods=['GET', 'POST'])
