@@ -24,7 +24,7 @@ def test(symbol):
     try:
         stock_data = yf.Ticker(symbol)
         info = {
-           'Symbol': symbol('symbol'),
+           'Symbol': stock_data.info.get('symbol'),
             'previousClose': stock_data.info.get('previousClose'),
             'open': stock_data.info.get('open'),
             'dayLow': stock_data.info.get('dayLow')
