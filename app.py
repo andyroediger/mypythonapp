@@ -1,9 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request, make_response
 import yfinance as yf
 import pandas as pd
-import datetime as dt
 import os
-from gunicorn import util
+from gunicorn
 
 
 app = Flask(__name__)
@@ -29,8 +28,9 @@ def ai():
         table_html = df.to_html()
 
         # You can pass the HTML table to the template
-        return render_template('ai.html')
+        return render_template('ai.html', table_html=table_html)
     except Exception as e:
+        return f"Error: {str(e)}"
 
 
 @app.route('/home', methods=['GET', 'POST'])
