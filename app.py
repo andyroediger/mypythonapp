@@ -18,6 +18,16 @@ def stock_info(symbol):
     except Exception as e:
        
         return f"Error: {str(e)}"
+    
+@app.route('/test')
+def test(symbol):
+    try:
+        stock_data = yf.Ticker(symbol)
+        info = stock_data.info
+        return render_template('test.html', info=info)
+    except Exception as e:
+       
+        return f"Error: {str(e)}"
 
 # @app.route('/ai/model')
 # def stock_info(symbol):
