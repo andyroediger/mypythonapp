@@ -30,7 +30,9 @@ def test(symbol):
             'open': stock_data.info.get('open'),
             'dayLow': stock_data.info.get('dayLow'),
             'fullTimeEmployees': stock_data.info.get('fullTimeEmployees'),
-            'website': stock_data.info.get('website')
+            'website': stock_data.info.get('website'),
+            'fiftyDayAverage':stock_data.info.get('fiftyDayAverage'),
+            'twoHundredDayAverage':stock_data.info.get('twoHundredDayAverage',)
         }
         return render_template('test.html', info=info)
     except Exception as e:
