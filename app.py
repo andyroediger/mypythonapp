@@ -25,6 +25,8 @@ def test(symbol):
         stock_data = yf.Ticker(symbol)
         info = {
             'symbol': stock_data.info.get('symbol'),
+            'sector': stock_data.info.get('sector'),
+            'industry': stock_data.info.get('industry'),
             'currentPrice': stock_data.info.get('currentPrice'),
             'previousClose': stock_data.info.get('previousClose'),
             'open': stock_data.info.get('open'),
@@ -33,8 +35,9 @@ def test(symbol):
             'website': stock_data.info.get('website'),
             'fiftyDayAverage':stock_data.info.get('fiftyDayAverage'),
             'relto50': str((stock_data.info.get('currentPrice') / stock_data.info.get('fiftyDayAverage') - 1) * 100) + ' %',
-            'twoHundredDayAverage':stock_data.info.get('twoHundredDayAverage',)
+            'twoHundredDayAverage':stock_data.info.get('twoHundredDayAverage',)       
         }
+
         return render_template('test.html', info=info)
     except Exception as e:
         return f"Error: {str(e)}"
