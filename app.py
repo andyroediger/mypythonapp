@@ -32,6 +32,7 @@ def test(symbol):
             'fullTimeEmployees': stock_data.info.get('fullTimeEmployees'),
             'website': stock_data.info.get('website'),
             'fiftyDayAverage':stock_data.info.get('fiftyDayAverage'),
+            'relto50': str((stock_data.info.get('currentPrice') / stock_data.info.get('fiftyDayAverage') - 1) * 100) + ' %',
             'twoHundredDayAverage':stock_data.info.get('twoHundredDayAverage',)
         }
         return render_template('test.html', info=info)
