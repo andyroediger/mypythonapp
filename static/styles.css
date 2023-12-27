@@ -5,19 +5,19 @@
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 18px;
-    text-align: right;
+    text-align: left;
 }
 
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
     border-bottom: 1px solid #ddd;
-    text-align: right;
+    text-align: left;
     white-space: normal;
     /* or white-space: wrap; */
 }
 
 .styled-table th {
     background-color: #f2f2f2;
-    text-align: right;
+    text-align: left;
 }
