@@ -12,8 +12,10 @@
 .styled-table td {
     padding: 12px 15px;
     border-bottom: 1px solid #ddd;
+    text-align: right;
 }
 
 .styled-table th {
     background-color: #f2f2f2;
+    text-align: right;
 }
