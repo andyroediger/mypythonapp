@@ -13,6 +13,8 @@
     padding: 12px 15px;
     border-bottom: 1px solid #ddd;
     text-align: right;
+    white-space: normal;
+    /* or white-space: wrap; */
 }
 
 .styled-table th {
