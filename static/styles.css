@@ -1,6 +1,6 @@
 /* styles.css */
 
-.styled-table {
+table {
     width: 100%;
     border-collapse: collapse;
     margin: 25px 0;
@@ -8,8 +8,7 @@
     text-align: left;
 }
 
-.styled-table th,
-.styled-table td {
+td {
     padding: 12px 15px;
     border-bottom: 1px solid #820909;
     text-align: left;
@@ -17,7 +16,7 @@
     /* or white-space: wrap; */
 }
 
-.styled-table th {
+ th {
     background-color: #1b962b;
     text-align: left;
 }
