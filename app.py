@@ -4,7 +4,31 @@ import pandas as pd
 import datetime as dt
 import os
 from gunicorn import util
+from config import *
+import mysql.connector
 
+db_config = {
+    'host': hostname,
+    'user': username,
+    'password': password,
+    'database': database,
+}
+
+# Function to connect to the MySQL database and fetch data from a specific column
+def get_data_from_database(column_name):
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor()
+
+    # Replace 'your_table_name' with the actual table name
+    query = f"SELECT {column_name} FROM your_table_name"
+    
+    cursor.execute(query)
+    data = cursor.fetchall()
+
+    cursor.close()
+    connection.close()
+
+    return data
 
 app = Flask(__name__)
 app.config['ENV'] = 'production'
@@ -64,8 +88,6 @@ def start():
        
 
 @app.route('/register')
-
-
 def register():
  return render_template('register.html')
  
@@ -87,6 +109,19 @@ def download_csv():
 @app.route('/model')
 def newpage():
     return render_template('model.html')
+
+# Flask route to display the data as an HTML table
+@app.route('/hsai')
+def hsai():
+    # Replace 'your_column_name' with the actual column name you want to fetch
+    column_name = 'ai'
+    
+    data = get_data_from_database(column_name)
+
+    # Render the data in an HTML table
+    return render_template('hsai.html', data=data)
+
+
 
 if __name__ == '__main__':
     # app.run(host='0.0.0.0', port=5000)
