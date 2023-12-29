@@ -120,7 +120,7 @@ def show_data(table_name):
     cursor = connection.cursor(dictionary=True)  # Use dictionary cursor for better column name access
 
     # Fetch column names
-    cursor.execute(f"SHOW COLUMNS FROM {table_name} ORDER BY period DESC")
+    cursor.execute(f"SHOW COLUMNS FROM {table_name}")
     column_names = [column['Field'] for column in cursor.fetchall()]
 
     cursor.close()
