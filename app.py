@@ -15,12 +15,12 @@ db_config = {
 }
 
 # Function to connect to the MySQL database and fetch data from a specific column
-def get_data_from_database(column_name):
+def get_data_from_database(table_name):
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor()
 
-    # Replace 'your_table_name' with the actual table name
-    query = f"SELECT {column_name} FROM your_table_name"
+    # Fetch all columns from the specified table
+    query = f"SELECT * FROM {table_name}"
     
     cursor.execute(query)
     data = cursor.fetchall()
@@ -111,15 +111,23 @@ def newpage():
     return render_template('model.html')
 
 # Flask route to display the data as an HTML table
-@app.route('/hsai')
-def hsai():
-    # Replace 'your_column_name' with the actual column name you want to fetch
-    column_name = 'ai'
-    
-    data = get_data_from_database(column_name)
+@app.route('/show_data/<table_name>')
+def show_data(table_name):
+    data = get_data_from_database(table_name)
+
+    # Connect to the database to get column names
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor(dictionary=True)  # Use dictionary cursor for better column name access
+
+    # Fetch column names
+    cursor.execute(f"SHOW COLUMNS FROM {table_name}")
+    column_names = [column['Field'] for column in cursor.fetchall()]
+
+    cursor.close()
+    connection.close()
 
     # Render the data in an HTML table
-    return render_template('hsai.html', data=data)
+    return render_template('show_data.html', data=data, column_names=column_names, table_name=table_name)
 
 
 
