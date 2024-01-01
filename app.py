@@ -48,6 +48,7 @@ def test(symbol):
     try:
         stock_data = yf.Ticker(symbol)
         info = {
+            'test'
             'longName': stock_data.info.get('longName'),
             'symbol': stock_data.info.get('symbol'),
             'longBusinessSummary': stock_data.info.get('longBusinessSummary'),
